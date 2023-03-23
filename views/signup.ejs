@@ -1,12 +1,44 @@
-<%- include('partial/header.ejs') %>
-    <div class="hero is-link is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <div class="column is-8 is-offset-2">
-                    <h3 class="title has-text-white">Signup</h3>
+<%- include('partials/header.ejs') %>
+    <div class="background">
+        <div class="blur"></div>
+    </div>
+    <div class="hero-body">
+        <div class="container">
+            <div class="box is-fullheight">
+                <div class="columns">
+                    <div class="column is-half left">
+                        <div class="left-bg"></div>
+                    </div>
+                    <div class="column is-half has-text-centered">
+                        <h3 class="title has-text-dark">Signup</h3>
+                        <hr>
+                        <p class="subtitle has-text-dark">Please registration to see our cool stuff!</p>
+                        <div class="column is-8 is-offset-2">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <div class="field">
+                                    <div class="label ">Full Name</div>
+                                    <input type="text" class="input" placeholder="Full Name">
+                                </div>
+                                <div class="field">
+                                    <div class="label ">Email</div>
+                                    <input type="text" class="input" placeholder="email@email.com">
+                                </div>
+                                <div class="field">
+                                    <div class="label ">Password</div>
+                                    <input type="password" class="input" placeholder="**********">
+                                </div>
+                                <div class="field">
+                                    <div class="label ">Re-Password</div>
+                                    <input type="password" class="input" placeholder="**********">
+                                </div>
+                                <button class="button is-primary is-fullwidth is-medium px-2" type="submit">Sign
+                                    Up</button>
+                                <a href="/" class="button is-danger is-fullwidth is-medium back-signup">Back</a>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <%- include('partial/footer.ejs') %>
+    <%- include('partials/footer.ejs') %>
