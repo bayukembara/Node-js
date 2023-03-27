@@ -3,6 +3,17 @@ html body {
     width: 100%;
     overflow: hidden;
 }
+#strength {
+    margin-top: 4px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
 .background {
     background-image: url("../images/background.jpg");
     background-position: bottom;
@@ -17,7 +28,7 @@ html body {
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     position: absolute;
 }
@@ -41,11 +52,18 @@ html body {
     height: 600px;
     width: 100%;
 }
+.left-bg-login {
+    background-image: url("../images/background1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+}
 
 .hero-body {
     position: absolute;
     justify-content: center;
     top: 15%;
-    left: 19%;
+    left: 15%;
     margin: 0;
 }

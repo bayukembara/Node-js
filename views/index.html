@@ -4,14 +4,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Hello Bulma!</title>
+        <title>Login BlogDB</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
         <link rel="stylesheet" href="../public/css/styles.css">
         <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
     </head>
 
     <body>
-        <div class="background">
+        <div class="background-login">
             <div class="blur"></div>
         </div>
         <div class="hero-body">
@@ -19,34 +19,22 @@
                 <div class="box is-fullheight">
                     <div class="columns">
                         <div class="column is-half left">
-                            <div class="left-bg"></div>
+                            <div class="left-bg-login"></div>
                         </div>
                         <div class="column is-half has-text-centered">
-                            <h3 class="title has-text-dark">Signup</h3>
+                            <h3 class="title has-text-dark">Login</h3>
                             <hr>
-                            <p class="subtitle has-text-dark">Please registration to see our cool stuff!</p>
+                            <p class="subtitle has-text-dark">Please login to see our cool stuff!</p>
                             <div class="column is-8 is-offset-2">
                                 <form action="" method="post" enctype="multipart/form-data">
                                     <div class="field">
-                                        <div class="label ">Full Name</div>
-                                        <input type="text" class="input" placeholder="Full Name">
-                                    </div>
-                                    <div class="field">
-                                        <div class="label ">Email</div>
-                                        <input type="text" class="input" placeholder="email@email.com">
-                                    </div>
-                                    <div class="field">
                                         <div class="label ">Password</div>
-                                        <input type="password" class="input" placeholder="**********">
+                                        <input type="password" class="input mb-2" id="pass" placeholder="**********">
                                     </div>
-                                    <div class="field">
-                                        <div class="label ">Re-Password</div>
-                                        <input type="password" class="input" placeholder="**********">
-                                    </div>
-                                    <button class="button is-primary is-fullwidth is-medium px-2" type="submit">Sign
-                                        Up</button>
-                                    <a href="/login"
-                                        class="button is-danger is-fullwidth is-medium back-signup">Back</a>
+                                    <progress class="progress is-small mt-1" value="0" max="100"
+                                        id="strength"></progress>
+                                    <button class="button is-primary is-fullwidth is-medium px-2"
+                                        type="submit">Login</button>
                                 </form>
                             </div>
                         </div>
@@ -55,5 +43,50 @@
             </div>
         </div>
     </body>
+
+    <script>
+        const passwordInput = document.getElementById('pass');
+        const strengthBar = document.getElementById('strength');
+
+        passwordInput.addEventListener('input', updateStrengthIndicator);
+
+        function updateStrengthIndicator() {
+            const password = passwordInput.value;
+            const strength = calculatePasswordStrength(password);
+            strengthBar.value = strength;
+
+            if (strengthBar.value == 25) {
+                strengthBar.classList.add('is-danger');
+            } else if (strengthBar.value == 50) {
+                strengthBar.classList.remove('is-danger');
+                strengthBar.classList.add('is-warning');
+            } else if (strengthBar.value == 75) {
+                strengthBar.classList.remove('is-warning');
+                strengthBar.classList.add('is-info');
+            } else {
+                strengthBar.classList.remove('is-warning');
+                strengthBar.classList.remove('is-info');
+                strengthBar.classList.add('is-success');
+            }
+
+        }
+
+        function calculatePasswordStrength(password) {
+            let strength = 0;
+            if (password.length >= 8) {
+                strength += 25;
+            }
+            if (/[a-z]/.test(password)) {
+                strength += 25;
+            }
+            if (/[A-Z]/.test(password)) {
+                strength += 25;
+            }
+            if (/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+                strength += 25;
+            }
+            return strength;
+        }
+    </script>
 
 </html>

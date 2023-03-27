@@ -7,6 +7,7 @@ const app = express();
 const port = 3000;
 
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
@@ -15,6 +16,11 @@ app.get("/", (req, res) => {
 
 app.get("/signup", (req, res) => {
     res.render("signup", {});
+});
+
+app.post("/signup", (req, res) => {
+    console.log(req.body.password);
+    res.redirect("/signup");
 });
 
 app.listen(port, () => {
