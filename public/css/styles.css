@@ -1,8 +1,7 @@
 html body {
-    height: 100%;
-    width: 100%;
     overflow: hidden;
 }
+
 #strength {
     margin-top: 4px;
 }
@@ -14,15 +13,17 @@ html body {
 .show {
     visibility: visible;
 }
+
 .background {
     background-image: url("../images/background.jpg");
     background-position: bottom;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     position: absolute;
 }
+
 .background-login {
     background-image: url("../images/background1.jpg");
     background-position: bottom;
@@ -36,34 +37,131 @@ html body {
 .blur {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(1px);
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    position: absolute;
+    position: static;
 }
 
 .box {
     opacity: 0.9;
 }
 
-.left-bg {
-    background-image: url("../images/background.jpg");
-    background-repeat: round;
-    background-size: cover;
-    height: 600px;
-    width: 100%;
-}
-.left-bg-login {
-    background-image: url("../images/background1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 600px;
-    width: 100%;
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+    .left-bg {
+        background-image: url("../images/background.jpg");
+        background-repeat: round;
+        background-size: cover;
+        height: 580px;
+        width: 100%;
+    }
+
+    .left-bg-login {
+        background-image: url("../images/background1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 580px;
+        width: 100%;
+    }
+    .hero-body {
+        position: absolute;
+        justify-content: center;
+        top: 5%;
+        left: 10%;
+        margin: 0;
+    }
 }
 
-.hero-body {
-    position: absolute;
-    justify-content: center;
-    top: 15%;
-    left: 15%;
-    margin: 0;
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    .left-bg {
+        background-image: url("../images/background.jpg");
+        background-repeat: round;
+        background-size: cover;
+        height: 550px;
+        width: 100%;
+    }
+
+    .left-bg-login {
+        background-image: url("../images/background1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        width: 100%;
+    }
+    .hero-body {
+        position: absolute;
+        justify-content: center;
+        top: 2%;
+        left: 10%;
+        margin: 0;
+    }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .left-bg {
+        background-image: url("../images/background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+        width: 100%;
+    }
+
+    .left-bg-login {
+        background-image: url("../images/background1.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 400px;
+        width: 100%;
+    }
+    .hero-body {
+        position: absolute;
+        justify-content: center;
+        top: 5%;
+        left: 10%;
+        margin: 0;
+    }
+    .box {
+        width: 600px;
+    }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+    /* CSS */
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+    /* CSS */
 }
